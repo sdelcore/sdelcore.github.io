@@ -20,6 +20,8 @@
     <meta name="description" content="A personal site for professional use.">
     <meta name="author" content="">
     <title>Spencer Delcore</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Google Web Font -->
@@ -48,48 +50,197 @@
     <![endif]-->
 </head>
 <body id="home">
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status"></div>
-</div>
-<!-- FullScreen -->
-<div class="intro-header">
-    <div class="col-xs-12 text-center abcen1">
-        <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Spencer Delcore</h1>
-        <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Computer Engineering<br>University of Waterloo</h3>
-        <ul class="list-inline intro-social-buttons">
-            <li><a href="https://github.com/sdelcore" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Github</span></a>
-            </li>
-            <li><a href="https://ca.linkedin.com/in/spencer-delcore-105701b6" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">LinkedIn</span></a>
-            </li>
-            <li><a href="./files/resume.pdf" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Resume</span></a>
-        </ul>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status"></div>
     </div>
-</div>
-<!-- JavaScript -->
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/script.js"></script>
-<!-- StikyMenu -->
-<script src="js/stickUp.min.js"></script>
-<script type="text/javascript">
-    jQuery(function($) {
-        $(document).ready( function() {
-            $('.navbar-default').stickUp();
+    <!-- FullScreen -->
+    <div class="intro-header">
+        <div class="col-xs-12 text-center abcen1">
+            <h1 class="h1_home wow fadeIn" data-wow-delay="0.2s">Spencer Delcore</h1>
+            <h3 class="h3_home wow fadeIn" data-wow-delay="0.4s">Honours Computer Engineering 2B<br>University of Waterloo</h3>
+            <ul class="list-inline intro-social-buttons">
+                <li><a href="https://github.com/sdelcore" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="0.6s"><span class="network-name">Github</span></a>
+                </li>
+                <li><a href="https://ca.linkedin.com/in/spencer-delcore-105701b6" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="0.6s"><span class="network-name">LinkedIn</span></a>
+                </li>
+                <li><a href="./files/resume.pdf" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.6s"><span class="network-name">Resume</span></a>
+            </ul>
+        </div>
+        <!-- /.container -->
+        <div class="col-xs-12 text-center abcen wow fadeIn">
+            <div class="button_down ">
+                <a class="imgcircle wow" data-wow-duration="1.5s"  href="#professional"> <img class="img_scroll" src="img/icon/circle.png" alt=""> </a>
+            </div>
+        </div>
+    </div>
+    <!-- NavBar-->
+    <nav class="navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">Delcore</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menuItem"><a href="#professional">Professional</a></li>
+                    <li class="menuItem"><a href="#projects">Projects</a></li>
+                    <li class="menuItem"><a href="#coming">Coming Soon</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Who Am I -->
+    <div id="professional" class="content-section-b" style="border-top: 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 wow text-center">
+                    <a href="https://www.ingleinternational.com/"><img src="img/professional/ingle.png" alt="Generic placeholder image"></a>
+                    <h3>Software Engineering</h3>
+                    <p class="lead">May - August 2016 </br></br>
+                        "Spencer is a solid developer who worked on a wide range of tasks including our Travel Navigator API and mobile app. Spencer has very good communication skills, and was able to convey complex problems in a simple to understand fashion. Spencer worked well with other interns as well as members of the company, and is pleasant to be around."
+                    </p>
+                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-sm-4 wow text-center">
+                    <a href="https://www.viziya.com/"><img src="img/professional/viziya.png" alt="Generic placeholder image"></a>
+                    <h3>Software Developer</h3>
+                    <p class="lead">September - December 2015 </br></br>
+                        "Spencer proved himself to be a valuable resource for our development team. His development skills are strong and he has an excellent attitude and work ethic. He was eager to learn and not afraid to ask questions for clarification to ensure he met expectations for the tasks he was assigned."
+                    </p>
+                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-sm-4 wow text-center">
+                    <a href="https://www.emergingstar.ca/"><img src="img/professional/emergingstar.png"></a>
+                    <h3>Software Developer</h3>
+                    <p class="lead">January - April 2015 </br></br>
+                        "He created and used project documentation to develop financial planning calculators and tools. He adapted quickly and worked strongly to learn agile development, test driven development, and advanced web programming concepts, and was able to bring that learning into his programming work."
+                    </p>
+                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    <!-- Use it -->
+    <div id ="projects" class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 pull-right wow">
+                    <img class="img-responsive " src="img/projects/button-fade-interrupt.png" alt="">
+                </div>
+                <div class="col-sm-6 wow"  data-animation-delay="200">
+                    <h3 class="section-heading">LED Fade</h3>
+                    <div class="sub-title lead3">Putting theory to practice</div>
+                    <p class="lead">
+                        When the button is pressed an interrupt service routine is executed, this sets a flag that will indicate to the Arduino whether or not to fade the LED in and out.
+                    </p>
+                    <p><a class="btn btn-embossed btn-primary" href="https://circuits.io/circuits/1985925-fade-led-interrupts" role="button">View Simulator</a>
+                        <a class="btn btn-embossed btn-info" href="https://github.com/sdelcore/button_fade_interrupts" role="button">Visit GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 wow">
+                    <div id="owl-demo-1" class="owl-carousel">
+                        <a href="img/projects/laravel-blog.png" class="image-link">
+                            <div class="item">
+                                <img src="img/projects/laravel-blog.png" alt="Generic placeholder image">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 wow"  data-animation-delay="200">
+                    <h3 class="section-heading">Blog</h3>
+                    <div class="sub-title lead3">Written using PHP and the Laravel Framework</div>
+                    <p class="lead">
+                      A site that allows a user to register, login, view, post, and comment.
+                    </p>
+                    <p>
+                       <a class="btn btn-embossed btn-primary" href="http://sdelcore.duckdns.org/laravel-blog" role="button">Visit Website</a>
+                        <a class="btn btn-embossed btn-info" href="https://github.com/sdelcore/laravel_blog" role="button">Visit GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Screenshot -->
+    <div id="coming" class="content-section-b">
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
+                    <h2>Projects Coming Soon</h2>
+                    <p class="lead" style="margin-top:0">Some more than others.</p>
+                </div>
+            </div>
+            <div class="row wow" >
+                <div id="owl-demo" class="owl-carousel">
+                    <a href="img/projects/guess.PNG" class="image-link">
+                        <div class="item">
+                            <img  class="img-responsive img-rounded" src="img/projects/guess.PNG" alt="Owl Image">
+                        </div>
+                    </a>
+                    <a href="img/projects/piano.PNG" class="image-link">
+                        <div class="item">
+                            <img  class="img-responsive img-rounded" src="img/projects/piano.PNG" alt="Owl Image">
+                        </div>
+                    </a>
+                    <a href="img/projects/water.PNG" class="image-link">
+                        <div class="item">
+                            <img  class="img-responsive img-rounded" src="img/projects/water.PNG" alt="Owl Image">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3 class="footer-title">Spencer Delcore</h3>
+                    <p>Always moving forward.</p><br>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/script.js"></script>
+    <!-- StikyMenu -->
+    <script src="js/stickUp.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $(document).ready( function() {
+                $('.navbar-default').stickUp();
+            });
         });
-    });
-</script>
-<!-- Smoothscroll -->
-<script type="text/javascript" src="js/jquery.corner.js"></script>
-<script src="js/wow.min.js"></script>
-<script>
-    new WOW().init();
-</script>
-<script src="js/classie.js"></script>
-<script src="js/uiMorphingButton_inflow.js"></script>
-<script src="js/jquery.magnific-popup.js"></script>
+    </script>
+    <!-- Smoothscroll -->
+    <script type="text/javascript" src="js/jquery.corner.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/classie.js"></script>
+    <script src="js/uiMorphingButton_inflow.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
 </body>
 </html>
 <!-- A special thanks to the FlatFy Theme by Andrea Galanti /-->
