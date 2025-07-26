@@ -4,7 +4,7 @@ title: Technical Writing with Mermaid Diagrams and Images
 date: 2025-01-25
 description: Learn how to create beautiful technical documentation with Mermaid diagrams and properly formatted images in your blog posts.
 tags: ["tutorial", "mermaid", "documentation", "markdown"]
-share: true
+share: false
 ---
 
 This post demonstrates how to include images and create interactive diagrams using Mermaid.js in your Eleventy blog posts. Whether you're documenting a system architecture, explaining a workflow, or illustrating machine learning concepts, these tools will help make your content more engaging and understandable.

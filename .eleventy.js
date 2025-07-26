@@ -32,7 +32,9 @@ module.exports = function(eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection("posts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("posts/**/*.md").reverse();
+    return collectionApi.getFilteredByGlob("posts/**/*.md")
+      .filter(post => post.data.share !== false)
+      .reverse();
   });
 
   return {
