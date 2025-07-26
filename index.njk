@@ -1,0 +1,236 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="hero">
+  <h1 class="hero-title">Spencer Delcore</h1>
+  <h3 class="hero-subtitle">Graduate Student @ UWaterloo</h3>
+</div>
+
+{% if collections.posts.length > 0 %}
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  <div class="blog-posts">
+    {% for post in collections.posts | reverse | limit(3) %}
+      <article class="blog-post">
+        <h3 class="blog-title">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        <div class="blog-meta">
+          {{ post.date | dateDisplay }}
+        </div>
+        <div class="blog-excerpt">
+          {% if post.data.description %}
+            {{ post.data.description }}
+          {% else %}
+            {{ post.templateContent | excerpt }}
+          {% endif %}
+        </div>
+        <a href="{{ post.url }}" class="read-more">Read more</a>
+      </article>
+    {% endfor %}
+  </div>
+  <div class="view-all">
+    <a href="/blog" class="social-link">View all posts</a>
+  </div>
+</section>
+{% endif %}
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 6rem 0 4rem;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+  
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #5a9ca8 0%, #0f4c5c 100%);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(90, 156, 168, 0.3);
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #999999;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .recent-posts {
+    margin-top: 2rem;
+  }
+  
+  .recent-posts h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .recent-posts h2:after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Override blog post styles for homepage */
+  .recent-posts .blog-post {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .recent-posts .blog-post:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateX(-100%);
+  }
+  
+  .recent-posts .blog-post:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: none;
+  }
+  
+  .recent-posts .blog-post:hover:before {
+    transform: translateX(0);
+  }
+  
+  .recent-posts .blog-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .recent-posts .blog-title a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .recent-posts .blog-title a:hover {
+    color: #5a9ca8;
+  }
+  
+  .recent-posts .blog-meta {
+    color: #666666;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .recent-posts .blog-excerpt {
+    color: #999999;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .recent-posts .read-more {
+    color: #5a9ca8;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  
+  .recent-posts .read-more:hover {
+    color: #7ec3cf;
+    gap: 0.75rem;
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .view-all .social-link {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 2rem;
+    font-weight: 400;
+    font-size: 0.875rem;
+    box-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .view-all .social-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: none;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+    
+    .recent-posts h2 {
+      font-size: 2rem;
+    }
+    
+    .recent-posts .blog-post {
+      padding: 2rem;
+    }
+    
+    .recent-posts .blog-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

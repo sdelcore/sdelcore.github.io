@@ -1,0 +1,51 @@
+---
+layout: base.njk
+---
+
+<article class="post-content">
+  <header>
+    <h1>{{ title }}</h1>
+    <div class="blog-meta">
+      <time datetime="{{ date | dateDisplay }}">{{ date | dateDisplay }}</time>
+      {% if tags %}
+        <span class="tags">
+          {% for tag in tags %}
+            <span class="tag">#{{ tag }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+  
+  {{ content | safe }}
+  
+  <footer>
+    <div class="post-navigation">
+      <a href="/blog" class="read-more">← Back to all posts</a>
+    </div>
+  </footer>
+</article>
+
+<style>
+  .post-content header {
+    margin-bottom: 3rem;
+  }
+  
+  .tags {
+    margin-left: 1rem;
+  }
+  
+  .tag {
+    background: rgba(90, 156, 168, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+  }
+  
+  .post-navigation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(90, 156, 168, 0.2);
+  }
+</style>

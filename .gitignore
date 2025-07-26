@@ -1,1 +1,73 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Eleventy output
+_site/
+.eleventy-cache/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor files
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
 .idea/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Nix/direnv
+.direnv/
+result
+result-*
+
+# Cache
+.cache/
+.parcel-cache/
+.npm/
+
+# Temporary files
+*.tmp
+.temp/
+tmp/
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Debug
+.vscode/launch.json
+.vscode/tasks.json
+
+# Backup files
+*.backup
+*.bak
+*.orig

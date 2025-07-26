@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="{{ description or 'Spencer Delcore - Graduate Student & Machine Learning Developer' }}">
+    <meta name="author" content="Spencer Delcore">
+    <title>{{ title }} - Spencer Delcore</title>
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .nav {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #808080;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .nav-links a:hover {
+            color: #e5e5e5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #b3b3b3;
+        }
+        
+        a {
+            color: #e5e5e5;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        
+        a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 400;
+            opacity: 1;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: none;
+        }
+        
+        /* Blog specific styles */
+        .blog-post {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-post:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .blog-title {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .blog-meta {
+            color: #666666;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.02em;
+        }
+        
+        .blog-excerpt {
+            color: #999999;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: #e5e5e5;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.8;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .read-more:after {
+            content: '>>';
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        
+        /* Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: -2;
+        }
+        
+        .bg-pattern {
+            display: none;
+        }
+        
+        /* Post content styles */
+        .post-content {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .post-content h1,
+        .post-content h2,
+        .post-content h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .post-content code {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #e5e5e5;
+        }
+        
+        .post-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid #333333;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #808080;
+            font-style: italic;
+        }
+        
+        /* Mermaid diagram styles */
+        .mermaid {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Image styles */
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .post-content figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .post-content figcaption {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-pattern"></div>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Spencer Delcore</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="https://github.com/sdelcore">GitHub</a></li>
+                <li><a href="https://ca.linkedin.com/in/spencer-delcore-105701b6">LinkedIn</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        {{ content | safe }}
+    </main>
+    
+    <!-- Mermaid.js for diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#0f4c5c',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#5a9ca8',
+                lineColor: '#5a9ca8',
+                secondaryColor: '#1a3a52',
+                tertiaryColor: '#0a1f2e',
+                background: '#0a1f2e',
+                mainBkg: '#0f4c5c',
+                secondBkg: '#1a3a52',
+                tertiaryBkg: '#0a1f2e',
+                primaryBorderColor: '#5a9ca8',
+                secondaryBorderColor: '#5a9ca8',
+                tertiaryBorderColor: '#5a9ca8',
+                textColor: '#e2e8f0',
+                labelTextColor: '#e2e8f0',
+                nodeTextColor: '#e2e8f0',
+                fontSize: '16px'
+            }
+        });
+    </script>
+</body>
+</html>
