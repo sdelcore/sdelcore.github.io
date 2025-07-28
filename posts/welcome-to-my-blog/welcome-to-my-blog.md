@@ -2,25 +2,27 @@
 layout: post.njk
 title: Welcome to My Blog
 date: 2025-01-25
-description: An introduction to my new blog where I'll share insights on machine learning, software development, and technology.
+description: An introduction to my new blog where I'll share insights on embeeded systems, machine learning, software development, and technology.
 tags: ["introduction", "blog"]
 share: true
 ---
 
-Welcome to my new blog! I'm excited to share my journey as a graduate student at the University of Waterloo and a Machine Learning Developer at Molex.
+Welcome to my new blog!
 
 ## What to Expect
 
 In this blog, I'll be writing about:
 
+- **Embedded Systems**: Deep dives into embedded systems, hardware, and software
 - **Machine Learning**: Deep dives into ML concepts, papers, and implementations
-- **Software Development**: Best practices, tools, and techniques I've learned
-- **Academic Research**: Insights from my graduate studies
+- **Software Development**: Best practices, tools, and techniques I've learned in the industry
 - **Technology Trends**: Thoughts on emerging technologies and their impact
+- **Academic Research**: Insights from my graduate studies
+- **Personal Projects**: Sharing my personal projects and learnings
 
 ## My Background
 
-I'm currently pursuing graduate studies at the University of Waterloo while working as a Machine Learning Developer at Molex. This unique position allows me to bridge the gap between academic research and industry applications.
+I'm currently pursuing graduate studies at the University of Waterloo. I previously worked at Molex in their Industrial Solutions as a technical team lead and R&D developer. This unique position allows me to bridge the gap between academic research and industry applications.
 
 ## Publishing Workflow
 
