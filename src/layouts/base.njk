@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="{{ description or 'Spencer Delcore - Graduate Student & Machine Learning Developer' }}">
     <meta name="author" content="Spencer Delcore">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; img-src 'self' https://www.google-analytics.com data:;">
     <title>{{ title }} - Spencer Delcore</title>
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
     <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/svg+xml">
@@ -303,11 +305,80 @@
                 width: 200px;
             }
         }
+        
+        /* Cookie consent banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .cookie-consent-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cookie-consent-text {
+            flex: 1;
+            font-size: 0.875rem;
+            color: #b3b3b3;
+        }
+        
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cookie-consent-button {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .cookie-consent-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .cookie-consent-button.accept {
+            background: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 <body>
     <div class="bg-gradient"></div>
     <div class="bg-pattern"></div>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-wrapper">
+            <div class="cookie-consent-text">
+                This site uses cookies for analytics. We respect your privacy and only collect anonymized data.
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-consent-button" onclick="declineCookies()">Decline</button>
+                <button class="cookie-consent-button accept" onclick="acceptCookies()">Accept</button>
+            </div>
+        </div>
+    </div>
     
     <nav class="nav">
         <div class="nav-container">
@@ -324,6 +395,58 @@
     <main class="container">
         {{ content | safe }}
     </main>
+    
+    <!-- Cookie Consent Logic -->
+    {% if site.analytics.gaId and site.analytics.enableTracking %}
+    <script>
+        // Check for existing consent
+        const hasConsent = localStorage.getItem('cookieConsent');
+        
+        // Show banner if no consent decision made
+        if (hasConsent === null) {
+            document.getElementById('cookieConsent').style.display = 'block';
+        }
+        
+        // Accept cookies function
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').style.display = 'none';
+            loadGoogleAnalytics();
+        }
+        
+        // Decline cookies function
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+        
+        // Load Google Analytics function
+        function loadGoogleAnalytics() {
+            // Create script element
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.analytics.gaId }}';
+            document.head.appendChild(script);
+            
+            // Initialize gtag
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ site.analytics.gaId }}', {
+                'anonymize_ip': true,
+                'cookie_flags': 'SameSite=None;Secure',
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false,
+                'storage': 'none'
+            });
+        }
+        
+        // Load GA if already accepted
+        if (hasConsent === 'accepted') {
+            loadGoogleAnalytics();
+        }
+    </script>
+    {% endif %}
     
     <!-- Mermaid.js for diagrams -->
     <script type="module">
