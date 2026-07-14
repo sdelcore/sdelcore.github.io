@@ -2,7 +2,7 @@
 layout: post.njk
 title: Welcome to My Blog
 date: 2025-01-25
-description: An introduction to my new blog where I'll share insights on embeeded systems, machine learning, software development, and technology.
+description: An introduction to my new blog where I'll share insights on embedded systems, machine learning, software development, and technology.
 tags: ["introduction", "blog"]
 share: true
 ---
