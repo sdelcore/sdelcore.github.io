@@ -3,76 +3,26 @@ layout: base.njk
 title: Home
 ---
 
-<section class="intro">
+<section class="landing">
   <h1>Spencer Delcore</h1>
-  <p>
-    Lead embedded developer at HMS Networks, where I build AI-driven embedded
-    tooling — agents and hardware-in-the-loop CI/CD that flash, debug, and
-    validate code on real hardware.
-  </p>
-  <p>
-    I recently finished my MASc in Electrical and Computer Engineering at the
-    University of Waterloo, researching autonomous-driving safety in the
-    <a href="https://uwaterloo.ca/waterloo-intelligent-systems-engineering-lab/">WISE Lab</a>.
-    Before that I spent six years at Molex leading embedded teams on
-    safety-critical firmware.
-  </p>
-</section>
-
-{% if collections.posts.length > 0 %}
-<section class="recent-posts">
-  <h2>Recent Posts</h2>
-  <div class="blog-posts">
-    {% for post in collections.posts | reverse | limit(3) %}
-      <article class="blog-post">
-        <h3 class="blog-title">
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </h3>
-        <div class="blog-meta">
-          {{ post.date | dateDisplay }}
-        </div>
-        <div class="blog-excerpt">
-          {% if post.data.description %}
-            {{ post.data.description }}
-          {% else %}
-            {{ post.templateContent | excerpt }}
-          {% endif %}
-        </div>
-        <a href="{{ post.url }}" class="read-more">Read more</a>
-      </article>
-    {% endfor %}
+  <p>Lead embedded developer at HMS Networks.</p>
+  <div class="social-links">
+    <a href="https://github.com/sdelcore" class="social-link">GitHub</a>
+    <a href="https://ca.linkedin.com/in/spencer-delcore-105701b6" class="social-link">LinkedIn</a>
   </div>
-  <p class="view-all"><a href="/blog">View all posts</a></p>
 </section>
-{% endif %}
 
 <style>
-  .intro {
-    padding: 3rem 0 2rem;
-    margin-bottom: 2rem;
+  .landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
   }
 
-  .intro h1 {
-    margin-bottom: 1.5rem;
-  }
-
-  .intro p {
-    max-width: 640px;
-  }
-
-  .intro a {
-    text-decoration: underline;
-  }
-
-  .recent-posts h2 {
-    margin-bottom: 2rem;
-  }
-
-  .view-all {
-    margin-top: 2rem;
-  }
-
-  .view-all a {
-    text-decoration: underline;
+  .landing h1 {
+    margin-bottom: 1rem;
   }
 </style>
